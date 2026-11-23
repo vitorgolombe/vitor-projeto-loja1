@@ -1,0 +1,906 @@
+ii<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grand Line Kicks | Calçados Lendários dos Mares</title>
+  <!-- Tailwind CSS via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Fontes Google: Cinzel Decorative para títulos épicos e Plus Jakarta Sans para leitura limpa -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            navy: {
+              900: '#0f172a',
+              800: '#1e293b',
+              950: '#090d16'
+            },
+            gold: {
+              400: '#fbbf24',
+              500: '#f59e0b',
+              300: '#fcd34d'
+            },
+            crimson: {
+              600: '#e11d48',
+              700: '#be123c'
+            },
+            ocean: {
+              50: '#f8fafc'
+            }
+          },
+          fontFamily: {
+            pirate: ['"Cinzel Decorative"', 'serif'],
+            sans: ['"Plus Jakarta Sans"', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Padrão náutico sutil para fundos escuros */
+    .nautical-pattern {
+      background-color: #0f172a;
+      background-image: radial-gradient(rgba(251, 191, 36, 0.12) 1px, transparent 1px),
+                        radial-gradient(rgba(225, 29, 72, 0.08) 1px, #0f172a 1px);
+      background-size: 32px 32px;
+      background-position: 0 0, 16px 16px;
+    }
+
+    /* Animação flutuante para tênis em destaque */
+    @keyframes floatShoe {
+      0%, 100% { transform: translateY(0px) rotate(-6deg); }
+      50% { transform: translateY(-12px) rotate(-3deg); }
+    }
+    .animate-shoe {
+      animation: floatShoe 4s ease-in-out infinite;
+    }
+
+    /* Barra de rolagem customizada */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #0f172a;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #fbbf24;
+      border-radius: 9999px;
+    }
+  </style>
+</head>
+<body class="bg-ocean-50 text-navy-900 font-sans antialiased selection:bg-gold-400 selection:text-navy-900">
+
+  <!-- =========================================================
+       CABEÇALHO / NAVBAR
+  ========================================================== -->
+  <header class="sticky top-0 z-40 bg-navy-900/95 backdrop-blur-md border-b border-gold-400/20 shadow-lg">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+        
+        <!-- Logo Temática -->
+        <a href="#inicio" class="flex items-center gap-3 group">
+          <div class="w-11 h-11 rounded-2xl bg-gradient-to-br from-gold-400 to-amber-600 p-2 flex items-center justify-center shadow-md group-hover:scale-105 transition-transform">
+            <!-- Ícone SVG: Chapéu de Palha Estilizado -->
+            <svg viewBox="0 0 64 64" class="w-full h-full fill-navy-900">
+              <path d="M12 36c0-11.046 8.954-20 20-20s20 8.954 20 20H12z" />
+              <rect x="12" y="31" width="40" height="5" fill="#e11d48" />
+              <ellipse cx="32" cy="38" rx="30" ry="6" fill="#fbbf24" stroke="#0f172a" stroke-width="3"/>
+            </svg>
+          </div>
+          <div>
+            <span class="font-pirate text-xl sm:text-2xl font-black tracking-wider text-white block leading-none">
+              GRAND LINE <span class="text-gold-400">KICKS</span>
+            </span>
+            <span class="text-[10px] uppercase tracking-[0.25em] text-slate-400 font-semibold">
+              Calçados dos Mares
+            </span>
+          </div>
+        </a>
+
+        <!-- Links de Navegação (Desktop) -->
+        <nav class="hidden md:flex items-center gap-8">
+          <a href="#inicio" class="text-sm font-semibold text-slate-200 hover:text-gold-400 transition-colors">Início</a>
+          <a href="#colecoes" class="text-sm font-semibold text-slate-200 hover:text-gold-400 transition-colors">Coleções</a>
+          <a href="#destaques" class="text-sm font-semibold text-slate-200 hover:text-gold-400 transition-colors">Destaques</a>
+          <a href="#sobre" class="text-sm font-semibold text-slate-200 hover:text-gold-400 transition-colors">Sobre a Tripulação</a>
+        </nav>
+
+        <!-- Ações à Direita: Botão Baú (Carrinho) + Menu Mobile -->
+        <div class="flex items-center gap-3">
+          <button onclick="toggleCart(true)" aria-label="Abrir Baú do Tesouro"
+            class="relative flex items-center gap-2.5 bg-crimson-600 hover:bg-crimson-700 text-white font-bold px-4 py-2.5 rounded-2xl shadow-lg shadow-crimson-600/30 transition-all active:scale-95">
+            <!-- Ícone Baú / Sacola -->
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
+            </svg>
+            <span class="hidden sm:inline text-sm">Baú</span>
+            <span id="cart-badge" class="bg-gold-400 text-navy-900 text-xs font-extrabold px-2 py-0.5 rounded-full min-w-[22px] text-center">
+              0
+            </span>
+          </button>
+
+          <!-- Botão Hambúrguer Mobile -->
+          <button id="mobile-menu-btn" onclick="toggleMobileMenu()" class="md:hidden p-2.5 rounded-xl text-slate-200 hover:bg-navy-800">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Menu Mobile Expansível -->
+      <div id="mobile-menu" class="hidden md:hidden pb-4 pt-2 border-t border-slate-800 space-y-2">
+        <a href="#inicio" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-xl text-slate-200 hover:bg-navy-800 hover:text-gold-400 font-semibold">Início</a>
+        <a href="#colecoes" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-xl text-slate-200 hover:bg-navy-800 hover:text-gold-400 font-semibold">Coleções</a>
+        <a href="#destaques" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-xl text-slate-200 hover:bg-navy-800 hover:text-gold-400 font-semibold">Destaques</a>
+        <a href="#sobre" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-xl text-slate-200 hover:bg-navy-800 hover:text-gold-400 font-semibold">Sobre a Tripulação</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- =========================================================
+       BANNER HERO
+  ========================================================== -->
+  <section id="inicio" class="nautical-pattern text-white relative overflow-hidden border-b-4 border-gold-400">
+    <!-- Brilhos decorativos -->
+    <div class="absolute -top-24 -right-24 w-96 h-96 bg-crimson-600/20 rounded-full blur-3xl pointer-events-none"></div>
+    <div class="absolute -bottom-24 -left-24 w-96 h-96 bg-gold-400/15 rounded-full blur-3xl pointer-events-none"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24 relative z-10">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        
+        <!-- Texto Hero -->
+        <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+          <div class="inline-flex items-center gap-2 bg-navy-800/90 border border-gold-400/40 px-4 py-1.5 rounded-full text-gold-400 text-xs font-bold uppercase tracking-widest">
+            <span>⚓</span> Edição Limitada Novo Mundo • Log Pose Ativo
+          </div>
+
+          <h1 class="font-pirate text-4xl sm:text-5xl lg:text-6xl font-black leading-tight tracking-tight">
+            Pise firme rumo ao <span class="text-transparent bg-clip-text bg-gradient-to-r from-gold-300 via-gold-400 to-amber-500">One Piece</span>
+          </h1>
+
+          <p class="text-slate-300 text-base sm:text-lg max-w-2xl mx-auto lg:mx-0 leading-relaxed">
+            Forjados com tecnologia de Egghead e a vontade indomável dos Chapéus de Palha. Tênis e botas de alta performance para enfrentar tempestades na Grand Line ou dominar as ruas.
+          </p>
+
+          <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-2">
+            <a href="#colecoes" class="w-full sm:w-auto px-8 py-4 bg-gold-400 hover:bg-gold-300 text-navy-900 font-extrabold rounded-2xl shadow-xl shadow-gold-400/20 transition-all hover:-translate-y-0.5 text-center">
+              Explorar Coleção
+            </a>
+            <a href="#destaques" class="w-full sm:w-auto px-8 py-4 bg-navy-800/80 hover:bg-navy-800 border border-slate-700 text-white font-bold rounded-2xl transition-all text-center">
+              Edição Gear 5 ⚡
+            </a>
+          </div>
+
+          <!-- Selos de Confiança Pirata -->
+          <div class="grid grid-cols-3 gap-4 pt-6 border-t border-slate-800/80 max-w-lg mx-auto lg:mx-0">
+            <div>
+              <p class="text-gold-400 font-extrabold text-lg sm:text-xl">100%</p>
+              <p class="text-xs text-slate-400">Amortecimento Gomu</p>
+            </div>
+            <div>
+              <p class="text-gold-400 font-extrabold text-lg sm:text-xl">B$ & R$</p>
+              <p class="text-xs text-slate-400">Câmbio Oficial Ilhas</p>
+            </div>
+            <div>
+              <p class="text-gold-400 font-extrabold text-lg sm:text-xl">Thousand Sunny</p>
+              <p class="text-xs text-slate-400">Frete Expresso Coup de Burst</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Ilustração Destaque Hero (Sneaker Gear 5 Custom SVG) -->
+        <div class="lg:col-span-5 flex justify-center">
+          <div class="relative w-full max-w-md aspect-square bg-gradient-to-tr from-navy-800 to-slate-800/60 rounded-[2.5rem] border border-gold-400/30 p-8 flex flex-col items-center justify-center shadow-2xl">
+            <span class="absolute top-5 left-5 bg-crimson-600 text-white text-xs font-extrabold px-3 py-1 rounded-full uppercase tracking-wider">
+              Recompensa: B$ 3.000.000.000
+            </span>
+            
+            <!-- SVG Ilustração Sneaker Futurista -->
+            <svg viewBox="0 0 320 200" class="w-full h-auto animate-shoe drop-shadow-[0_25px_25px_rgba(251,191,36,0.25)]">
+              <!-- Nuvens Hagoromo -->
+              <path d="M45 95c-15 0-25 10-25 22s10 20 24 20h15c10 0 18-8 18-18 0-8-5-15-12-17-3-5-11-7-20-7z" fill="#ffffff" opacity="0.9"/>
+              <path d="M250 55c-12 0-20 8-20 18s8 16 20 16h12c8 0 14-6 14-14 0-7-4-12-10-14-3-4-9-6-16-6z" fill="#fbbf24" opacity="0.85"/>
+              <!-- Sola Chunky -->
+              <path d="M35 148c40 8 190 10 255-4 8-2 12-10 8-17l-12-14H45l-15 18c-5 6-2 15 5 17z" fill="#f8fafc"/>
+              <path d="M40 153c45 7 185 8 245-3" stroke="#e11d48" stroke-width="5" stroke-linecap="round"/>
+              <!-- Corpo do Tênis -->
+              <path d="M45 132L65 72c6-12 20-16 32-10l28 16c18 10 38 12 56 4l22-10c10-4 22 2 26 12l24 44c4 8-2 16-11 16H55c-8 0-13-6-10-12z" fill="#ffffff"/>
+              <!-- Detalhes Dourados e Vermelhos -->
+              <path d="M85 115c35-5 75-22 115-15" stroke="#fbbf24" stroke-width="8" stroke-linecap="round"/>
+              <path d="M95 127c30-4 65-16 100-11" stroke="#e11d48" stroke-width="5" stroke-linecap="round"/>
+              <!-- Cadarços -->
+              <line x1="135" y1="74" x2="152" y2="66" stroke="#0f172a" stroke-width="4" stroke-linecap="round"/>
+              <line x1="152" y1="81" x2="169" y2="73" stroke="#0f172a" stroke-width="4" stroke-linecap="round"/>
+              <line x1="169" y1="88" x2="186" y2="80" stroke="#0f172a" stroke-width="4" stroke-linecap="round"/>
+            </svg>
+
+            <div class="mt-4 text-center">
+              <p class="font-pirate text-gold-400 text-lg font-bold">SUN GOD NIKA "AIR-5"</p>
+              <p class="text-xs text-slate-300">Edição Despertar • Branco Nuvem & Ouro</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       DESTAQUES DA TRIPULAÇÃO (BANNER DE VANTAGENS)
+  ========================================================== -->
+  <section id="destaques" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-8 relative z-20">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+      <div class="bg-white rounded-3xl p-6 shadow-md border border-slate-100 flex items-start gap-4">
+        <div class="w-12 h-12 rounded-2xl bg-crimson-600/10 text-crimson-600 flex items-center justify-center shrink-0 text-2xl">
+          🔥
+        </div>
+        <div>
+          <h3 class="font-bold text-navy-900 text-base">Sola Diable Jambe</h3>
+          <p class="text-xs text-slate-500 mt-1 leading-relaxed">Borracha vulcanizada resistente a altas temperaturas e atrito intenso nas batalhas.</p>
+        </div>
+      </div>
+
+      <div class="bg-white rounded-3xl p-6 shadow-md border border-slate-100 flex items-start gap-4">
+        <div class="w-12 h-12 rounded-2xl bg-gold-400/20 text-amber-600 flex items-center justify-center shrink-0 text-2xl">
+          ⚡
+        </div>
+        <div>
+          <h3 class="font-bold text-navy-900 text-base">Tecnologia Clima-Mesh</h3>
+          <p class="text-xs text-slate-500 mt-1 leading-relaxed">Tecido respirável adaptado para o calor de Alabasta ou o frio rigoroso de Drum.</p>
+        </div>
+      </div>
+
+      <div class="bg-white rounded-3xl p-6 shadow-md border border-slate-100 flex items-start gap-4">
+        <div class="w-12 h-12 rounded-2xl bg-navy-900/10 text-navy-900 flex items-center justify-center shrink-0 text-2xl">
+          🧭
+        </div>
+        <div>
+          <h3 class="font-bold text-navy-900 text-base">Estabilidade Haki</h3>
+          <p class="text-xs text-slate-500 mt-1 leading-relaxed">Palmilha anatômica com suporte reforçado para passadas firmes em qualquer convés.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       CATÁLOGO E FILTROS POR PERSONAGEM
+  ========================================================== -->
+  <main id="colecoes" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
+      <div>
+        <span class="text-crimson-600 font-extrabold text-xs uppercase tracking-widest">Arsenal de Calçados</span>
+        <h2 class="font-pirate text-3xl sm:text-4xl font-black text-navy-900 mt-1">
+          Coleção da Grande Rota
+        </h2>
+      </div>
+
+      <!-- Botões de Filtro por Personagem -->
+      <div id="filter-container" class="flex flex-wrap gap-2">
+        <button data-filter="todos" class="filter-btn active px-4 py-2.5 rounded-2xl text-xs sm:text-sm font-bold bg-navy-900 text-gold-400 shadow-sm transition-all">
+          Todos (6)
+        </button>
+        <button data-filter="Luffy Gear 5" class="filter-btn px-4 py-2.5 rounded-2xl text-xs sm:text-sm font-bold bg-white text-slate-700 hover:bg-slate-100 border border-slate-200 transition-all">
+          Luffy Gear 5
+        </button>
+        <button data-filter="Zoro Santoryu" class="filter-btn px-4 py-2.5 rounded-2xl text-xs sm:text-sm font-bold bg-white text-slate-700 hover:bg-slate-100 border border-slate-200 transition-all">
+          Zoro Santoryu
+        </button>
+        <button data-filter="Sanji Black Leg" class="filter-btn px-4 py-2.5 rounded-2xl text-xs sm:text-sm font-bold bg-white text-slate-700 hover:bg-slate-100 border border-slate-200 transition-all">
+          Sanji Black Leg
+        </button>
+        <button data-filter="Nami Clima-Tact" class="filter-btn px-4 py-2.5 rounded-2xl text-xs sm:text-sm font-bold bg-white text-slate-700 hover:bg-slate-100 border border-slate-200 transition-all">
+          Nami Clima-Tact
+        </button>
+        <button data-filter="Law Ope-Ope" class="filter-btn px-4 py-2.5 rounded-2xl text-xs sm:text-sm font-bold bg-white text-slate-700 hover:bg-slate-100 border border-slate-200 transition-all">
+          Law Ope-Ope
+        </button>
+      </div>
+    </div>
+
+    <!-- Grade de Produtos (Renderizada via JS) -->
+    <div id="products-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+      <!-- Cards injetados dinamicamente -->
+    </div>
+  </main>
+
+  <!-- =========================================================
+       SEÇÃO SOBRE A TRIPULAÇÃO
+  ========================================================== -->
+  <section id="sobre" class="bg-navy-900 text-white py-16 border-t border-gold-400/20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="bg-navy-800/70 border border-slate-700/80 rounded-[2.5rem] p-8 md:p-12 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+        <div class="lg:col-span-8 space-y-4">
+          <span class="text-gold-400 font-bold text-xs uppercase tracking-widest">Nossa História nos Mares</span>
+          <h2 class="font-pirate text-2xl sm:text-3xl font-black">Forjados para quem não foge de uma aventura</h2>
+          <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
+            A <strong class="text-white">Grand Line Kicks</strong> nasceu no estaleiro de Water 7 com um único objetivo: criar calçados dignos dos futuros Reis dos Piratas. Cada par carrega detalhes exclusivos inspirados nas Akuma no Mi, espadas lendárias e estilos de luta dos navegadores mais temidos dos quatro oceanos.
+          </p>
+        </div>
+        <div class="lg:col-span-4 flex flex-col sm:flex-row lg:flex-col gap-3 justify-end">
+          <div class="bg-navy-900/90 border border-gold-400/30 rounded-2xl p-4 text-center">
+            <span class="block text-2xl font-pirate font-black text-gold-400">1 B$ = R$ 0,05</span>
+            <span class="text-xs text-slate-400">Cotação Oficial do Governo Mundial</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       RODAPÉ
+  ========================================================== -->
+  <footer class="bg-navy-950 text-slate-400 pt-14 pb-10 border-t border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-10 pb-10 border-b border-slate-800/80">
+        <div>
+          <div class="flex items-center gap-2.5 text-white mb-3">
+            <span class="text-gold-400 text-xl">⚓</span>
+            <span class="font-pirate text-lg font-black tracking-wide">GRAND LINE <span class="text-gold-400">KICKS</span></span>
+          </div>
+          <p class="text-xs leading-relaxed text-slate-400">
+            Loja oficial de calçados temáticos inspirados na Grande Rota. Conforto absoluto de East Blue até Laugh Tale.
+          </p>
+        </div>
+
+        <div>
+          <h4 class="text-white font-bold text-sm mb-3">Navegação Rápida</h4>
+          <ul class="space-y-2 text-xs">
+            <li><a href="#inicio" class="hover:text-gold-400 transition-colors">Início</a></li>
+            <li><a href="#colecoes" class="hover:text-gold-400 transition-colors">Coleções por Personagem</a></li>
+            <li><a href="#destaques" class="hover:text-gold-400 transition-colors">Tecnologias de Batalha</a></li>
+            <li><button onclick="toggleCart(true)" class="hover:text-gold-400 transition-colors">Abrir Baú do Tesouro</button></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="text-white font-bold text-sm mb-3">Bases de Operação</h4>
+          <p class="text-xs leading-relaxed">
+            Doca 1 - Water 7, Paraíso<br>
+            Filial Arquipélago Sabaody • Bosque 13<br>
+            Suporte via Den Den Mushi: 0800-ONE-PIECE
+          </p>
+        </div>
+      </div>
+
+      <div class="pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+        <p>© 2026 Grand Line Kicks. Todos os direitos reservados.</p>
+        <p class="text-center sm:text-right text-slate-400">
+          ⚠️ Projeto fictício fã-made inspirado em One Piece (Eiichiro Oda / Toei Animation). Sem fins comerciais reais.
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- =========================================================
+       GAVETA LATERAL DO CARRINHO ("BAÚ DO TESOURO")
+  ========================================================== -->
+  <div id="cart-backdrop" onclick="toggleCart(false)" class="fixed inset-0 bg-navy-950/75 backdrop-blur-sm z-50 hidden transition-opacity"></div>
+  
+  <aside id="cart-drawer" class="fixed top-0 right-0 h-full w-full max-w-md bg-white z-50 shadow-2xl transform translate-x-full transition-transform duration-300 flex flex-col">
+    <!-- Topo da Gaveta -->
+    <div class="bg-navy-900 text-white p-6 flex items-center justify-between border-b-2 border-gold-400">
+      <div class="flex items-center gap-3">
+        <span class="text-2xl">🏴‍☠️</span>
+        <div>
+          <h3 class="font-pirate text-lg font-black text-gold-400">Baú do Tesouro</h3>
+          <p class="text-xs text-slate-300">Seus saques prontos para embarque</p>
+        </div>
+      </div>
+      <button onclick="toggleCart(false)" class="p-2 rounded-xl bg-navy-800 text-slate-300 hover:text-white transition-colors">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+    </div>
+
+    <!-- Lista de Itens no Carrinho -->
+    <div id="cart-items-container" class="flex-1 overflow-y-auto p-6 space-y-4">
+      <!-- Itens renderizados dinamicamente -->
+    </div>
+
+    <!-- Rodapé do Carrinho / Subtotal e Finalização -->
+    <div class="p-6 bg-slate-50 border-t border-slate-200 space-y-4">
+      <div class="space-y-1.5">
+        <div class="flex justify-between text-xs text-slate-500">
+          <span>Frete Thousand Sunny (Coup de Burst)</span>
+          <span class="font-bold text-emerald-600">GRÁTIS</span>
+        </div>
+        <div class="flex justify-between items-baseline pt-2 border-t border-slate-200">
+          <span class="font-bold text-navy-900">Subtotal do Saque:</span>
+          <div class="text-right">
+            <span id="cart-subtotal-brl" class="block text-xl font-extrabold text-navy-900">R$ 0,00</span>
+            <span id="cart-subtotal-berries" class="block text-xs font-bold text-amber-600">B$ 0</span>
+          </div>
+        </div>
+      </div>
+
+      <button id="checkout-btn" onclick="checkoutOrder()" disabled
+        class="w-full py-4 rounded-2xl bg-crimson-600 hover:bg-crimson-700 disabled:bg-slate-300 disabled:cursor-not-allowed text-white font-extrabold text-sm uppercase tracking-wider shadow-lg shadow-crimson-600/25 transition-all active:scale-98">
+        Zarpar e Finalizar Compra
+      </button>
+    </div>
+  </aside>
+
+  <!-- =========================================================
+       MODAL DE CONFIRMAÇÃO DE PEDIDO (SUBSTITUI ALERT)
+  ========================================================== -->
+  <div id="order-modal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-navy-950/80 backdrop-blur-sm">
+    <div class="bg-white rounded-[2rem] max-w-md w-full p-8 text-center shadow-2xl border-2 border-gold-400 space-y-5 relative">
+      <div class="w-20 h-20 mx-auto rounded-full bg-gold-400/20 flex items-center justify-center text-4xl">
+        👑
+      </div>
+      <h3 class="font-pirate text-2xl font-black text-navy-900">Saque Confirmado, Capitão!</h3>
+      <p id="order-modal-text" class="text-sm text-slate-600 leading-relaxed">
+        Seu pedido já foi carregado no Thousand Sunny! Prepare seu Log Pose, pois a entrega chegará na velocidade de um Coup de Burst.
+      </p>
+      <div class="bg-navy-900 text-gold-400 rounded-2xl p-4 text-xs font-bold tracking-wider uppercase">
+        Código do Log Pose: #GLK-2026-NIKA
+      </div>
+      <button onclick="closeOrderModal()" class="w-full py-3.5 rounded-2xl bg-navy-900 hover:bg-navy-800 text-white font-bold text-sm transition-colors">
+        Voltar ao Convés
+      </button>
+    </div>
+  </div>
+
+  <!-- Toast de Notificação Rápida -->
+  <div id="toast" class="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 bg-navy-900 text-white border border-gold-400 px-5 py-3 rounded-2xl shadow-2xl flex items-center gap-3 text-sm font-semibold opacity-0 pointer-events-none transition-all duration-300 translate-y-4">
+    <span class="text-gold-400 text-lg">🪙</span>
+    <span id="toast-msg">Item adicionado ao Baú!</span>
+  </div>
+
+  <!-- =========================================================
+       LÓGICA JAVASCRIPT (CATÁLOGO, FILTROS E CARRINHO)
+  ========================================================== -->
+  <script>
+    // Banco de dados dos calçados da coleção
+    const products = [
+      {
+        id: 1,
+        name: "Nika Air Gear 5 'Sun God'",
+        character: "Luffy Gear 5",
+        badge: "Despertar Mítico",
+        description: "Solado ultra-elástico inspirado na Gomu Gomu no Mi despertada, com detalhes em nuvens brancas e dourado celestial.",
+        priceBRL: 899.90,
+        priceBerries: 18000,
+        gradient: "from-slate-100 via-amber-50 to-gold-300/40",
+        primaryColor: "#ffffff",
+        secondaryColor: "#fbbf24",
+        accentColor: "#e11d48",
+        sizes: [37, 38, 39, 40, 41, 42, 43, 44]
+      },
+      {
+        id: 2,
+        name: "Enma Santoryu High-Top",
+        character: "Zoro Santoryu",
+        badge: "Lâmina Negra",
+        description: "Cano alto em verde musgo profundo com três faixas cortantes e acabamento metálico inspirado na espada Enma.",
+        priceBRL: 749.90,
+        priceBerries: 15000,
+        gradient: "from-emerald-950 via-emerald-900 to-purple-950",
+        primaryColor: "#065f46",
+        secondaryColor: "#a855f7",
+        accentColor: "#fbbf24",
+        sizes: [38, 39, 40, 41, 42, 43, 44]
+      },
+      {
+        id: 3,
+        name: "Diable Jambe Dress Oxford",
+        character: "Sanji Black Leg",
+        badge: "Chama Azul Ifrit",
+        description: "Silhueta social-esportiva preta com solado translúcido flamejante, criado para chutes supersônicos sem perder a elegância.",
+        priceBRL: 689.90,
+        priceBerries: 13800,
+        gradient: "from-slate-900 via-navy-900 to-sky-900",
+        primaryColor: "#0f172a",
+        secondaryColor: "#38bdf8",
+        accentColor: "#f97316",
+        sizes: [38, 39, 40, 41, 42, 43]
+      },
+      {
+        id: 4,
+        name: "Sorcery Clima-Tact Runner",
+        character: "Nami Clima-Tact",
+        badge: "Tempestade Zeus",
+        description: "Leveza extrema em laranja vibrante, azul-celeste e raios dourados para navegar por qualquer clima com precisão.",
+        priceBRL: 629.90,
+        priceBerries: 12600,
+        gradient: "from-orange-500 via-amber-400 to-sky-500",
+        primaryColor: "#f97316",
+        secondaryColor: "#38bdf8",
+        accentColor: "#facc15",
+        sizes: [37, 38, 39, 40, 41, 42]
+      },
+      {
+        id: 5,
+        name: "Tact Room Boot 'Surgeon'",
+        character: "Law Ope-Ope",
+        badge: "Coração Pirata",
+        description: "Bota tática urbana com estampa manchada clássica dos Piratas Heart e amortecimento cirúrgico de impacto.",
+        priceBRL: 799.90,
+        priceBerries: 16000,
+        gradient: "from-amber-400 via-yellow-500 to-zinc-900",
+        primaryColor: "#eab308",
+        secondaryColor: "#18181b",
+        accentColor: "#ffffff",
+        sizes: [37, 38, 39, 40, 41, 42, 43, 44]
+      },
+      {
+        id: 6,
+        name: "Red Hawk Gum-Gum Low",
+        character: "Luffy Gear 5",
+        badge: "Clássico East Blue",
+        description: "Tênis cano baixo vermelho chapéu de palha com biqueira reforçada e chamas vulcanizadas na entressola.",
+        priceBRL: 599.90,
+        priceBerries: 12000,
+        gradient: "from-crimson-700 via-rose-600 to-amber-500",
+        primaryColor: "#e11d48",
+        secondaryColor: "#fbbf24",
+        accentColor: "#0f172a",
+        sizes: [37, 38, 39, 40, 41, 42, 43, 44]
+      }
+    ];
+
+    // Estado da aplicação
+    let currentFilter = 'todos';
+    let selectedSizes = {}; // Armazena o tamanho escolhido por ID do produto
+    let cart = []; // Itens no carrinho: { uid, productId, name, character, size, priceBRL, priceBerries, qty, primaryColor, secondaryColor }
+
+    // Inicializa tamanhos padrão (40) para cada produto
+    products.forEach(p => {
+      selectedSizes[p.id] = p.sizes.includes(40) ? 40 : p.sizes[0];
+    });
+
+    // Formatador de moeda Real
+    function formatBRL(value) {
+      return value.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+    }
+
+    // Formatador de Berries
+    function formatBerries(value) {
+      return 'B$ ' + value.toLocaleString('pt-BR');
+    }
+
+    // Gera ilustração SVG personalizada para cada tênis com as cores do personagem
+    function getSneakerSVG(primary, secondary, accent) {
+      return `
+        <svg viewBox="0 0 280 160" class="w-48 h-28 drop-shadow-xl transition-transform duration-300 group-hover:scale-110 group-hover:-rotate-3">
+          <!-- Sola -->
+          <path d="M28 122c35 6 165 8 220-3 6-1 10-8 7-14l-10-12H36l-13 15c-4 5-1 13 5 14z" fill="#f8fafc"/>
+          <path d="M33 126c38 6 160 7 212-2" stroke="${accent}" stroke-width="4" stroke-linecap="round"/>
+          <!-- Corpo -->
+          <path d="M36 108L54 56c5-10 17-14 28-8l24 14c16 8 33 10 49 3l19-8c9-4 19 2 22 10l21 38c3 7-2 14-10 14H45c-7 0-11-5-9-11z" fill="${primary}"/>
+          <!-- Detalhes Laterais -->
+          <path d="M72 94c30-4 65-19 100-13" stroke="${secondary}" stroke-width="7" stroke-linecap="round"/>
+          <path d="M80 104c26-3 56-14 86-9" stroke="${accent}" stroke-width="4" stroke-linecap="round"/>
+          <!-- Cadarços -->
+          <line x1="115" y1="58" x2="130" y2="51" stroke="#ffffff" stroke-width="3.5" stroke-linecap="round"/>
+          <line x1="130" y1="64" x2="145" y2="57" stroke="#ffffff" stroke-width="3.5" stroke-linecap="round"/>
+          <line x1="145" y1="70" x2="160" y2="63" stroke="#ffffff" stroke-width="3.5" stroke-linecap="round"/>
+        </svg>
+      `;
+    }
+
+    // Renderiza a grade de produtos
+    function renderProducts() {
+      const grid = document.getElementById('products-grid');
+      const filtered = currentFilter === 'todos'
+        ? products
+        : products.filter(p => p.character === currentFilter);
+
+      grid.innerHTML = filtered.map(product => {
+        const chosenSize = selectedSizes[product.id];
+
+        return `
+          <article class="group bg-white rounded-[2rem] border border-slate-200/80 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col overflow-hidden">
+            <!-- Área Visual do Calçado -->
+            <div class="relative h-56 bg-gradient-to-br ${product.gradient} p-6 flex items-center justify-center overflow-hidden">
+              <span class="absolute top-4 left-4 bg-navy-900/90 backdrop-blur-sm text-gold-400 text-[11px] font-extrabold px-3 py-1 rounded-full uppercase tracking-wider">
+                ${product.character}
+              </span>
+              <span class="absolute top-4 right-4 bg-white/90 text-navy-900 text-[10px] font-extrabold px-2.5 py-1 rounded-full">
+                ${product.badge}
+              </span>
+              ${getSneakerSVG(product.primaryColor, product.secondaryColor, product.accentColor)}
+            </div>
+
+            <!-- Informações do Produto -->
+            <div class="p-6 flex-1 flex flex-col justify-between space-y-5">
+              <div>
+                <h3 class="font-bold text-lg text-navy-900 group-hover:text-crimson-600 transition-colors">
+                  ${product.name}
+                </h3>
+                <p class="text-xs text-slate-500 mt-1.5 leading-relaxed">
+                  ${product.description}
+                </p>
+              </div>
+
+              <!-- Seleção de Numeração (37 ao 44) -->
+              <div>
+                <div class="flex items-center justify-between mb-2">
+                  <span class="text-xs font-bold text-navy-900">Numeração (BR):</span>
+                  <span class="text-[11px] text-slate-400 font-semibold">Tam. ${chosenSize}</span>
+                </div>
+                <div class="grid grid-cols-4 gap-1.5">
+                  ${[37, 38, 39, 40, 41, 42, 43, 44].map(size => {
+                    const available = product.sizes.includes(size);
+                    const isSelected = chosenSize === size;
+                    if (!available) {
+                      return `<span class="py-1.5 text-center text-xs font-semibold rounded-xl bg-slate-100 text-slate-300 line-through cursor-not-allowed">${size}</span>`;
+                    }
+                    return `
+                      <button onclick="selectSize(${product.id}, ${size})"
+                        class="py-1.5 text-center text-xs font-bold rounded-xl border transition-all ${
+                          isSelected
+                            ? 'bg-navy-900 text-gold-400 border-navy-900 shadow-sm'
+                            : 'bg-white text-slate-700 border-slate-200 hover:border-navy-900'
+                        }">
+                        ${size}
+                      </button>
+                    `;
+                  }).join('')}
+                </div>
+              </div>
+
+              <!-- Preço e Botão Adicionar ao Baú -->
+              <div class="pt-3 border-t border-slate-100 flex items-center justify-between gap-3">
+                <div>
+                  <span class="block text-xs font-extrabold text-amber-600">${formatBerries(product.priceBerries)}</span>
+                  <span class="block text-lg font-extrabold text-navy-900">${formatBRL(product.priceBRL)}</span>
+                </div>
+                <button onclick="addToCart(${product.id})"
+                  class="px-4 py-3 rounded-2xl bg-crimson-600 hover:bg-crimson-700 text-white text-xs font-extrabold uppercase tracking-wider shadow-md shadow-crimson-600/20 transition-all active:scale-95 flex items-center gap-2">
+                  <span>+ Adicionar ao Baú</span>
+                </button>
+              </div>
+            </div>
+          </article>
+        `;
+      }).join('');
+    }
+
+    // Selecionar tamanho no card do produto
+    function selectSize(productId, size) {
+      selectedSizes[productId] = size;
+      renderProducts();
+    }
+
+    // Filtros por categoria/personagem
+    document.getElementById('filter-container').addEventListener('click', (e) => {
+      const btn = e.target.closest('.filter-btn');
+      if (!btn) return;
+
+      currentFilter = btn.dataset.filter;
+
+      document.querySelectorAll('.filter-btn').forEach(b => {
+        b.classList.remove('bg-navy-900', 'text-gold-400', 'shadow-sm');
+        b.classList.add('bg-white', 'text-slate-700', 'border', 'border-slate-200');
+      });
+
+      btn.classList.remove('bg-white', 'text-slate-700', 'border', 'border-slate-200');
+      btn.classList.add('bg-navy-900', 'text-gold-400', 'shadow-sm');
+
+      renderProducts();
+    });
+
+    // Adicionar item ao Baú (Carrinho)
+    function addToCart(productId) {
+      const product = products.find(p => p.id === productId);
+      const size = selectedSizes[productId];
+      const uid = `${product.id}-${size}`;
+
+      const existingItem = cart.find(item => item.uid === uid);
+      if (existingItem) {
+        existingItem.qty += 1;
+      } else {
+        cart.push({
+          uid,
+          productId: product.id,
+          name: product.name,
+          character: product.character,
+          size,
+          availableSizes: product.sizes,
+          priceBRL: product.priceBRL,
+          priceBerries: product.priceBerries,
+          qty: 1,
+          primaryColor: product.primaryColor,
+          secondaryColor: product.secondaryColor,
+          accentColor: product.accentColor
+        });
+      }
+
+      updateCartUI();
+      showToast(`${product.name} (Tam. ${size}) guardado no Baú!`);
+    }
+
+    // Alterar quantidade no carrinho
+    function updateQty(uid, delta) {
+      const item = cart.find(i => i.uid === uid);
+      if (!item) return;
+
+      item.qty += delta;
+      if (item.qty <= 0) {
+        cart = cart.filter(i => i.uid !== uid);
+      }
+      updateCartUI();
+    }
+
+    // Alterar tamanho diretamente dentro do carrinho
+    function changeCartItemSize(oldUid, newSizeStr) {
+      const newSize = parseInt(newSizeStr, 10);
+      const itemIndex = cart.findIndex(i => i.uid === oldUid);
+      if (itemIndex === -1) return;
+
+      const item = cart[itemIndex];
+      const newUid = `${item.productId}-${newSize}`;
+
+      // Verifica se já existe outro item igual com esse novo tamanho
+      const duplicate = cart.find(i => i.uid === newUid);
+      if (duplicate && duplicate !== item) {
+        duplicate.qty += item.qty;
+        cart.splice(itemIndex, 1);
+      } else {
+        item.size = newSize;
+        item.uid = newUid;
+      }
+      updateCartUI();
+    }
+
+    // Remover item do carrinho
+    function removeFromCart(uid) {
+      cart = cart.filter(i => i.uid !== uid);
+      updateCartUI();
+    }
+
+    // Atualiza interface do carrinho e contadores
+    function updateCartUI() {
+      const container = document.getElementById('cart-items-container');
+      const badge = document.getElementById('cart-badge');
+      const subtotalBRL = document.getElementById('cart-subtotal-brl');
+      const subtotalBerries = document.getElementById('cart-subtotal-berries');
+      const checkoutBtn = document.getElementById('checkout-btn');
+
+      const totalQty = cart.reduce((sum, item) => sum + item.qty, 0);
+      const totalBRL = cart.reduce((sum, item) => sum + item.priceBRL * item.qty, 0);
+      const totalBerries = cart.reduce((sum, item) => sum + item.priceBerries * item.qty, 0);
+
+      badge.textContent = totalQty;
+      subtotalBRL.textContent = formatBRL(totalBRL);
+      subtotalBerries.textContent = formatBerries(totalBerries);
+      checkoutBtn.disabled = cart.length === 0;
+
+      if (cart.length === 0) {
+        container.innerHTML = `
+          <div class="h-full flex flex-col items-center justify-center text-center py-12 space-y-3">
+            <div class="w-16 h-16 rounded-full bg-slate-100 flex items-center justify-center text-3xl">🧭</div>
+            <h4 class="font-bold text-navy-900">Seu Baú está vazio!</h4>
+            <p class="text-xs text-slate-500 max-w-xs">
+              Explore a coleção da Grand Line e adicione calçados lendários antes de zarpar.
+            </p>
+          </div>
+        `;
+        return;
+      }
+
+      container.innerHTML = cart.map(item => `
+        <div class="bg-slate-50 border border-slate-200 rounded-2xl p-4 flex gap-3.5 items-center">
+          <!-- Miniatura visual -->
+          <div class="w-16 h-16 rounded-xl bg-navy-900 flex items-center justify-center shrink-0 p-1.5">
+            <svg viewBox="0 0 280 160" class="w-full h-full">
+              <path d="M28 122c35 6 165 8 220-3 6-1 10-8 7-14l-10-12H36l-13 15c-4 5-1 13 5 14z" fill="#f8fafc"/>
+              <path d="M36 108L54 56c5-10 17-14 28-8l24 14c16 8 33 10 49 3l19-8c9-4 19 2 22 10l21 38c3 7-2 14-10 14H45c-7 0-11-5-9-11z" fill="${item.primaryColor}"/>
+              <path d="M72 94c30-4 65-19 100-13" stroke="${item.secondaryColor}" stroke-width="9" stroke-linecap="round"/>
+            </svg>
+          </div>
+
+          <!-- Detalhes e Controles -->
+          <div class="flex-1 min-w-0">
+            <div class="flex justify-between items-start gap-2">
+              <h4 class="font-bold text-xs text-navy-900 truncate">${item.name}</h4>
+              <button onclick="removeFromCart('${item.uid}')" class="text-slate-400 hover:text-crimson-600 text-xs font-bold" title="Remover">
+                ✕
+              </button>
+            </div>
+
+            <!-- Seletor de tamanho no carrinho -->
+            <div class="flex items-center gap-2 mt-1.5">
+              <label class="text-[11px] text-slate-500">Tam:</label>
+              <select onchange="changeCartItemSize('${item.uid}', this.value)"
+                class="text-xs font-bold bg-white border border-slate-200 rounded-lg px-2 py-0.5 text-navy-900">
+                ${item.availableSizes.map(s => `<option value="${s}" ${s === item.size ? 'selected' : ''}>${s}</option>`).join('')}
+              </select>
+            </div>
+
+            <div class="flex items-center justify-between mt-2.5">
+              <!-- Quantidade -->
+              <div class="inline-flex items-center bg-white border border-slate-200 rounded-xl">
+                <button onclick="updateQty('${item.uid}', -1)" class="px-2.5 py-1 text-xs font-bold text-navy-900 hover:bg-slate-100 rounded-l-xl">-</button>
+                <span class="px-2.5 text-xs font-extrabold text-navy-900">${item.qty}</span>
+                <button onclick="updateQty('${item.uid}', 1)" class="px-2.5 py-1 text-xs font-bold text-navy-900 hover:bg-slate-100 rounded-r-xl">+</button>
+              </div>
+
+              <!-- Preço total do item -->
+              <div class="text-right">
+                <span class="block text-[10px] font-bold text-amber-600">${formatBerries(item.priceBerries * item.qty)}</span>
+                <span class="block text-xs font-extrabold text-navy-900">${formatBRL(item.priceBRL * item.qty)}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    // Abrir / Fechar Gaveta do Carrinho
+    function toggleCart(open) {
+      const backdrop = document.getElementById('cart-backdrop');
+      const drawer = document.getElementById('cart-drawer');
+
+      if (open) {
+        backdrop.classList.remove('hidden');
+        setTimeout(() => drawer.classList.remove('translate-x-full'), 10);
+      } else {
+        drawer.classList.add('translate-x-full');
+        setTimeout(() => backdrop.classList.add('hidden'), 300);
+      }
+    }
+
+    // Menu Mobile
+    function toggleMobileMenu() {
+      const menu = document.getElementById('mobile-menu');
+      menu.classList.toggle('hidden');
+    }
+
+    // Finalizar Compra
+    function checkoutOrder() {
+      if (cart.length === 0) return;
+
+      const totalBRL = cart.reduce((sum, item) => sum + item.priceBRL * item.qty, 0);
+      const totalBerries = cart.reduce((sum, item) => sum + item.priceBerries * item.qty, 0);
+
+      document.getElementById('order-modal-text').innerHTML = `
+        Seu saque de <strong>${formatBRL(totalBRL)}</strong> (<strong>${formatBerries(totalBerries)}</strong>) já foi carregado no Thousand Sunny! Prepare seu Log Pose, pois a entrega chegará na velocidade de um Coup de Burst.
+      `;
+
+      cart = [];
+      updateCartUI();
+      toggleCart(false);
+
+      const modal = document.getElementById('order-modal');
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+    }
+
+    function closeOrderModal() {
+      const modal = document.getElementById('order-modal');
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+    }
+
+    // Toast de notificação
+    let toastTimeout;
+    function showToast(message) {
+      const toast = document.getElementById('toast');
+      document.getElementById('toast-msg').textContent = message;
+      toast.classList.remove('opacity-0', 'translate-y-4');
+      
+      clearTimeout(toastTimeout);
+      toastTimeout = setTimeout(() => {
+        toast.classList.add('opacity-0', 'translate-y-4');
+      }, 2600);
+    }
+
+    // Inicialização ao carregar a página
+    window.addEventListener('DOMContentLoaded', () => {
+      renderProducts();
+      updateCartUI();
+    });
+  </script>
+</body>
+</html>
